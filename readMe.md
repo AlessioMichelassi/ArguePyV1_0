@@ -1,3 +1,5 @@
+![ArguePy](https://user-images.githubusercontent.com/59560406/212428865-288e6843-923e-41ff-b55b-65ede0b39aea.png)
+
 ArguePy
 
 Introduction
@@ -11,6 +13,9 @@ Completion and calltips
 Auto-indentation
 Auto-completion for parentheses, brackets, quotes and comments
 Auto-save
+
+[![PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/alessiomichelassi)
+
 
 Installation
 pip install arguepy
