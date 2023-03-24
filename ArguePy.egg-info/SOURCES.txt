@@ -1,0 +1,7 @@
+setup.py
+ArguePy.egg-info/PKG-INFO
+ArguePy.egg-info/SOURCES.txt
+ArguePy.egg-info/dependency_links.txt
+ArguePy.egg-info/entry_points.txt
+ArguePy.egg-info/requires.txt
+ArguePy.egg-info/top_level.txt
