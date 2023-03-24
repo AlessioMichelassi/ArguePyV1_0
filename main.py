@@ -1,10 +1,13 @@
+import os
 import sys
+import time
 
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
 from ArguePy_CodeEditor.ArguePyMainWin import ArguePy
+from ArguePy_CodeEditor.editorWidgetTool.commonMenu.splashScreen import SplashScreen
 
 
 def setPalette(app):
@@ -35,9 +38,13 @@ def setPalette(app):
 
 def main():
     app = QApplication(sys.argv)
+    splash = SplashScreen()
+    splash.show()
     setPalette(app)
     window = ArguePy()
+    splash.finish(window)
     window.setGeometry(500, 500, 1200, 1200)
+    splash.close()
     window.show()
     sys.exit(app.exec())
 

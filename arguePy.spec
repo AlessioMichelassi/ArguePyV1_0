@@ -6,7 +6,7 @@ block_cipher = None
 
 a = Analysis(
     ['main.py'],
-    pathex=[],
+    pathex=['C:\\Users\\aless\\Desktop\\ArgyePy'],
     binaries=[],
     datas=[],
     hiddenimports=[],
@@ -35,10 +35,11 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir='./my_tmp_dir',
-    console=True,
+    console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch='win64',
     codesign_identity=None,
     entitlements_file=None,
+    icon=[('ArguePy_CodeEditor\\icon.png')],
 )

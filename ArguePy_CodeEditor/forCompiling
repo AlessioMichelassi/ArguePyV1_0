@@ -1,1 +1,1 @@
-pyinstaller --onefile main.py --distpath=C:\Users\aless\OneDrive\Desktop\ArgyePy --name=arguePy.exe --target-architecture=win64 --runtime-tmpdir="./my_tmp_dir" --clean
+pyinstaller --onefile main.py --distpath=C:\Users\aless\OneDrive\Desktop\ArgyePy --name=arguePy.exe --target-architecture=win64 --runtime-tmpdir="./my_tmp_dir" --icon=C:\Users\aless\OneDrive\Desktop\ArchivioPy\ArguePyV1_0\ArguePy_CodeEditor\icon.png --clean --console=0

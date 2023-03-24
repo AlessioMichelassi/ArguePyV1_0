@@ -1,8 +1,12 @@
+import sys
+import time
 from os.path import exists
 
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
+
+from ArguePy_CodeEditor.editorWidgetTool.commonMenu.splashScreen import SplashScreen
 
 
 class commonMenu(QMenuBar):
@@ -123,14 +127,7 @@ class commonMenu(QMenuBar):
         pass
 
     def createSettingsMenu(self):
-        _loadSettings = QAction("Load Settings", self)
-        _loadSettings.setStatusTip("Load settings")
-        _loadSettings.triggered.connect(self.loadSettings)
-        _saveSettings = QAction("Save Settings", self)
-        _saveSettings.setStatusTip("Save settings")
-        _saveSettings.triggered.connect(self.saveSettings)
-        self.SettingsMenu.addAction(_loadSettings)
-        self.SettingsMenu.addAction(_saveSettings)
+        pass
 
     def createHelpMenu(self):
         _help = QAction("Help", self)
@@ -331,8 +328,8 @@ class commonMenu(QMenuBar):
 
     def about(self):
         aboutDialog = QDialog(self)
-        aboutDialog.setWindowTitle("About ArguePy")
-        aboutDialog.setMinimumSize(600, 300)
+        aboutDialog.setWindowTitle("bout ArguePy")
+        aboutDialog.setMinimumSize(600, 500)
 
         titleLabel = QLabel("Argue Py")
         titleLabel.setStyleSheet("font-size: 24px; font-weight: bold;")

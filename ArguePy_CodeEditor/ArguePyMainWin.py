@@ -13,6 +13,7 @@ from ArguePy_CodeEditor.editorWidgetTool.arguePyWidget import ArguePyWidget
 from ArguePy_CodeEditor.editorWidgetTool.commonMenu.commonMenu import commonMenu
 from ArguePy_CodeEditor.editorWidgetTool.fileExplorer.fileExplorer import FileExplorer
 from ArguePy_CodeEditor.editorWidgetTool.tabWidget import ArgueTabWidget
+from ArguePy_CodeEditor.editorWidgetTool.resource import resource_rc
 from time import time
 
 
@@ -39,8 +40,8 @@ class ArguePy(QMainWindow):
 
     def initUI(self):
         self.setGeometry(300, 300, 300, 220)
-        self.setWindowTitle('ArguePy')
-        self.setWindowIcon(QIcon('ArguePy_CodeEditor/editorWidgetTool/img/icon/Argue.PNG'))
+        self.setWindowTitle('rguePy')
+        self.setWindowIcon(QIcon(":/resource/icon.png"))
         self.checkVersion()
 
     def checkVersion(self):
