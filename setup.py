@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     url='https://github.com/AlessioMichelassi/ArguePyV1_0',
     license='GPL',
-    author='alessio Michelassi',
+    author='Alessio Michelassi',
     author_email='alessio.michelassi@gmail.com',
     description='python code editor',
     install_requires=['PyQt5'],
