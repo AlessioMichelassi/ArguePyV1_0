@@ -1,0 +1,12 @@
+ITA:
+    ArguePy è un editor di testo per la programmazione in Python. È un software libero, distribuito sotto licenza GPL.
+
+    È disponibile per Windows, Linux e Mac OS X. È stato sviluppato da Alessio Michelassi nel 2023. Il nome è ispirato a una famosa scenetta dei MontyPython "Argument Clinic" dei Monty Python scritto da John Cleese and Graham Chapman dove Chapman entra in una clinica e dice "I want to argue" e Cleese gli risponde "You're in the wrong place, this is the Argument Clinic". In inglese discutere è anche sinonima di litigare e quindi il nome è stato scelto per sottolineare programmare in generale è un'attività che richiede molta pazienza e che spesso si trasforma in una discussione o un litigio con la macchina.
+
+
+ENG:
+    ArguePy is a text editor for Python programming. It is free software, distributed under the GPL license.
+
+    It is available for Windows, Linux and Mac OS X. It was developed by Alessio Michelassi in 2023. The name is inspired by a famous scene of the Monty Python "Argument Clinic" written by John Cleese and Graham Chapman where Chapman enters a clinic and says "I want to argue" and Cleese replies "You're in the wrong place, this is the Argument Clinic". In Italian to argue is also synonymous with to fight and so the name was chosen to underline that programming in general is an activity that requires a lot of patience and that often turns into a discussion or a fight with the machine.
+
+let's argue!
