@@ -19,8 +19,6 @@ class ArgueTabWidget(QTabWidget):
     def __init__(self, mainWindow, parent=None):
         super(ArgueTabWidget, self).__init__(parent)
         self.mainWindow = mainWindow
-        if not self.addEmptyTab():
-            return
         # Add a button to add a new tab
         newTabButton = QPushButton("+")
         newTabButton.clicked.connect(self.addEmptyTab)
@@ -50,7 +48,6 @@ class ArgueTabWidget(QTabWidget):
         except Exception as e:
             a = e
             return False
-
 
     def addCodeTab(self, path):
         """
@@ -164,3 +161,6 @@ class ArgueTabWidget(QTabWidget):
         """
         tabPressEvent = TabPressEvent()
         QApplication.sendEvent(self.currentWidget().layout().itemAt(0).widget(), tabPressEvent)
+
+    def getCurrentFile(self):
+        return self.fileNames[self.currentIndex()]

@@ -75,7 +75,8 @@ class ArguePy(QMainWindow):
         self.console.append("Welcome to ArguePy!")
         if self.isCompiled:
             self.console.append(f"compiled version{self.version}\nsystemFound: {os.name} - platform: {sys.platform}")
-            self.console.append(f"{platform.system()} - {platform.release()} - {platform.version()} - {platform.machine()}")
+            self.console.append(
+                f"{platform.system()} - {platform.release()} - {platform.version()} - {platform.machine()}")
         elif not self.isCompiled:
             self.console.append(f"not compiled test{self.version}\nsystemFound: {os.name} - platform: {sys.platform}")
             self.console.append(
@@ -117,13 +118,20 @@ class ArguePy(QMainWindow):
         """
         self.console.clear()
         if getattr(sys, 'frozen', False):
-            with open(os.path.join(sys._MEIPASS, 'temp.py'), 'w') as f:
+            """with open(os.path.join(sys._MEIPASS, 'temp.py'), 'w') as f:
                 f.write(self.getCode())
-            self.tryRun('python', os.path.join(sys._MEIPASS, 'temp.py'), os.path.dirname(sys.executable), 10)
+            self.tryRun('python', os.path.join(sys._MEIPASS, 'temp.py'), os.path.dirname(sys.executable), 10)"""
+            currentFile = self.arguePyTab.getCurrentFile()
+            absProjectPath = os.path.abspath(self.projectPath)
+            self.tryRun('python', currentFile, absProjectPath, 10)
         else:
-            with open(r'ArguePy_CodeEditor\temp.py', 'w+') as f:
+            """with open(r'ArguePy_CodeEditor\temp.py', 'w+') as f:
                 f.write(code)  # editor.get_text() restituisce il codice scritto dall'utente
-            self.tryRun('python', 'temp.py', os.path.dirname(os.path.abspath(__file__)), 10)
+                self.tryRun('python', 'temp.py', os.path.dirname(os.path.abspath(__file__)), 10)
+                """
+            currentFile = self.arguePyTab.getCurrentFile()
+            absProjectPath = os.path.abspath(self.projectPath)
+            self.tryRun('python', currentFile, absProjectPath, 10)
 
     def onProcessOutput(self):
         output = self.process.readAllStandardOutput().data().decode()
@@ -141,6 +149,21 @@ class ArguePy(QMainWindow):
             self.console.appendError(f"Process finished with exit code {exit_code}")
 
     def tryRun(self, program, arguments, workingDir, timeout=10):
+        """
+        ITA:
+            Esegue il codice scritto dall'utente utilizzando un QProcess, ovvero un processo
+            che viene eseguito in un thread separato. Il processo viene eseguito con il comando python
+            e il file temporaneo che viene creato con il codice scritto dall'utente.
+        ENG:
+            Runs the code written by the user using a QProcess, that is a process
+            that is executed in a separate thread. The process is executed with the python command
+            and the temporary file that is created with the code written by the user.
+        :param program:
+        :param arguments:
+        :param workingDir:
+        :param timeout:
+        :return:
+        """
         try:
             # Esegue il file Python utilizzando subprocess
             # Crea un processo QProcess per eseguire il codice

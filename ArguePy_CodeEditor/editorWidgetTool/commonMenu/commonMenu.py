@@ -339,10 +339,11 @@ class commonMenu(QMenuBar):
         authorLabel.setStyleSheet("font-size: 12px; font-weight: bold;")
         descriptionTxt = QTextEdit()
         descriptionTxt.setStyleSheet("font-size: 18px;")
-        with open("ArguePy_CodeEditor/editorWidgetTool/commonMenu/AboutThisSoftware.txt",
-                  "r", encoding="utf-8") as file:
-            aboutTxt = file.read()
-        descriptionTxt.setText(aboutTxt)
+        about_file = QFile(':/resource/AboutThisSoftware.txt')
+        about_file.open(QIODevice.ReadOnly | QIODevice.Text)
+        about_txt = bytes(about_file.readAll()).decode('utf-8')
+        about_file.close()
+        descriptionTxt.setText(about_txt)
         descriptionTxt.setReadOnly(True)
         layout = QVBoxLayout()
         layout.addWidget(titleLabel)

@@ -42,7 +42,7 @@ def main():
     splash.show()
     setPalette(app)
     window = ArguePy()
-    splash.finish(window)
+    #splash.finish(window)
     window.setGeometry(500, 500, 1200, 1200)
     splash.close()
     window.show()
