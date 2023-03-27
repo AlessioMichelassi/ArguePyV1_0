@@ -1,4 +1,4 @@
-![ArguePy](https://github.com/AlessioMichelassi/ArguePyV1_0/blob/26f4b3f31c0e571531db17ff7dc892b49332d116/ArguePy_CodeEditor/editorWidgetTool/commonMenu/logo.png)
+![ArguePy](https://github.com/AlessioMichelassi/ArguePyV1_0/blob/a1fd13e560f38f3134ab57bb5762b042f4ac1493/ArguePy_CodeEditor/editorWidgetTool/img/argue1_0.PNG)
 
 ArguePy
 
