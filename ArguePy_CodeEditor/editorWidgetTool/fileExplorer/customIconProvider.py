@@ -18,6 +18,8 @@ class CustomFileIconProvider(QFileIconProvider):
                 return QPixmap('ArguePy_CodeEditor/editorWidgetTool/fileExplorer/icon/script--pencil.png')
             elif extension == 'csv':
                 return QPixmap('ArguePy_CodeEditor/editorWidgetTool/fileExplorer/icon/script-excel.png')
-
+        # se è una cartella
+        elif fileInfo == QFileIconProvider.Folder:
+            return QIcon(os.path.abspath('ArguePy_CodeEditor/editorWidgetTool/fileExplorer/icon/folder-horizontal-open.png'))
         # for all other file types, use the default icon provider
         return super().icon(fileInfo)

@@ -13,7 +13,7 @@ class TabPressEvent(QEvent):
 
 
 class ArgueTabWidget(QTabWidget):
-    fileNames = {0: "Untitled.py"}
+    fileNames = {0: "untitled0.py"}
     fileNameCounter = 0
 
     def __init__(self, mainWindow, parent=None):
@@ -164,3 +164,23 @@ class ArgueTabWidget(QTabWidget):
 
     def getCurrentFile(self):
         return self.fileNames[self.currentIndex()]
+
+    def renameFile(self, oldName, newName):
+        """
+        ITA:
+            cerca la tab con il nome vecchio e la rinomina con il nuovo nome
+        ENG:
+            search for the tab with the old name and rename it with the new name
+        :param oldName:
+        :param newName:
+        :return:
+        """
+
+        for i in range(self.count()):
+            if self.tabText(i) == oldName.replace(".py", ""):
+                self.fileNames[i] = newName
+                niceName = newName.split("/")[-1]
+                niceName = niceName.split("\\")[-1]
+                self.setTabText(i, niceName)
+                self.widget(i).setObjectName(niceName)
+                return

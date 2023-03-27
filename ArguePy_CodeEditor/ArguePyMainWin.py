@@ -86,10 +86,10 @@ class ArguePy(QMainWindow):
             self.console.append(f"Project path: {self.projectPath}")
             self.console.append("Project path created!")
             self.console.append("please remember to create a new project or open an existing one")
-        dockWidget = QDockWidget("Console", self)
+        dockWidget = QDockWidget("", self)
         dockWidget.setWidget(self.console)
         self.addDockWidget(Qt.DockWidgetArea.BottomDockWidgetArea, dockWidget)
-        dockFileExplorer = QDockWidget("File Explorer", self)
+        dockFileExplorer = QDockWidget("", self)
 
         dockFileExplorer.setWidget(self.fileExplorer)
         self.addDockWidget(Qt.DockWidgetArea.LeftDockWidgetArea, dockFileExplorer)
@@ -101,6 +101,7 @@ class ArguePy(QMainWindow):
 
     def initConnection(self):
         self.fileExplorer.fileClickedSignal.connect(self.onExploreDoubleClickedSignal)
+        self.fileExplorer.fileRenameSignal.connect(self.onFileRenameSignal)
 
     #  ------------------ RUN THE CODE FUNCTION ------------------ #
 
@@ -117,21 +118,13 @@ class ArguePy(QMainWindow):
         :return:
         """
         self.console.clear()
-        if getattr(sys, 'frozen', False):
-            """with open(os.path.join(sys._MEIPASS, 'temp.py'), 'w') as f:
-                f.write(self.getCode())
-            self.tryRun('python', os.path.join(sys._MEIPASS, 'temp.py'), os.path.dirname(sys.executable), 10)"""
-            currentFile = self.arguePyTab.getCurrentFile()
+        if self.onSaveProject():
+            currentFile = self.fileExplorer.getCurrentFile()
+            self.console.append(f"Run File: {currentFile}")
             absProjectPath = os.path.abspath(self.projectPath)
             self.tryRun('python', currentFile, absProjectPath, 10)
         else:
-            """with open(r'ArguePy_CodeEditor\temp.py', 'w+') as f:
-                f.write(code)  # editor.get_text() restituisce il codice scritto dall'utente
-                self.tryRun('python', 'temp.py', os.path.dirname(os.path.abspath(__file__)), 10)
-                """
-            currentFile = self.arguePyTab.getCurrentFile()
-            absProjectPath = os.path.abspath(self.projectPath)
-            self.tryRun('python', currentFile, absProjectPath, 10)
+            self.console.appendError("Project not saved!")
 
     def onProcessOutput(self):
         output = self.process.readAllStandardOutput().data().decode()
@@ -252,3 +245,6 @@ class ArguePy(QMainWindow):
 
     def onSaveProjectAs(self):
         pass
+
+    def onFileRenameSignal(self, oldPath, newPath):
+        self.arguePyTab.renameFile(oldPath, newPath)

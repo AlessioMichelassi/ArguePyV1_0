@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import *
 class Console(QWidget):
     console: QTextEdit
     style = ""
-    consoleFont = QFont("Consolas", 10)
+    consoleFont = QFont("Bitstream Vera Sans", 9)
     backgroundColor = QColor(10, 10, 10)
     textColor = QColor(240, 240, 243)
     textColorError = QColor(255, 0, 0)
@@ -42,6 +42,7 @@ class Console(QWidget):
             QTextEdit {{
                 font-family: {self.consoleFont.family()};
                 font-size: {self.consoleFont.pointSize()}pt;
+                font-weight: 0;
                 color: rgb{self.textColor.getRgb()};
                 background-color:  rgb{self.backgroundColor.getRgb()};
                 border: 1px solid rgb{self.textColor.getRgb()};
