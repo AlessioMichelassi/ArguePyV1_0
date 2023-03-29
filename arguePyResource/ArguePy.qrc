@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/resource">
+        <file>icon.ico</file>
+        <file>icon.png</file>
+        <file>logo.png</file>
+        <file>iconControlOpen.png</file>
+        <file>iconControlClose.png</file>
+        <file>mainDefault.py</file>
+        <file>AboutThisSoftware.txt</file>
+    </qresource>
+</RCC>

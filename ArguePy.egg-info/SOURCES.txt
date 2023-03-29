@@ -1,4 +1,5 @@
 setup.py
+ArguePy.egg-info/HowDoPyPy
 ArguePy.egg-info/PKG-INFO
 ArguePy.egg-info/SOURCES.txt
 ArguePy.egg-info/dependency_links.txt

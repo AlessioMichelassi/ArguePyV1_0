@@ -1,0 +1,25 @@
+Per creare un file resource_rc.py che contiene le risorse grafiche utilizzate dalla tua applicazione,
+puoi utilizzare il tool pyrcc5, che fa parte del pacchetto pyqt5-tools.
+
+Ecco i passaggi:
+
+    Crea un file di testo chiamato resource.qrc contenente i percorsi alle risorse grafiche
+    (icone, immagini, ecc.) che vuoi includere nel tuo file resource_rc.py. Ad esempio:
+
+            <!DOCTYPE RCC><RCC version="1.0">
+            <qresource>
+                <file>icons/icon.png</file>
+                <file>icons/icon2.png</file>
+            </qresource>
+            </RCC>
+
+Utilizza il comando pyrcc5 per generare il file resource_rc.py. Ad esempio:
+
+            pyrcc5 ArguePy.qrc -o resource_rc.py
+
+            pyside6-rcc <file.qrc> -o <output_file.py>
+
+            su linux:
+            sudo locate pyside6-rcc
+
+            /home/tedk/.local/bin/pyside6-rcc ArguePy.qrc -o resource_rc.py

@@ -1,0 +1,34 @@
+Per creare un pacchetto Python, puoi utilizzare il modulo setuptools. Ecco i passi generali:
+
+    Crea una cartella per il tuo pacchetto e spostati dentro. Ad esempio, mkdir mypackage e cd mypackage
+    Crea un file setup.py che definisca le informazioni del tuo pacchetto, come il nome, la versione, l'autore, la descrizione, ecc. Ecco un esempio:
+
+python
+
+from setuptools import setup, find_packages
+
+setup(
+    name='arguePy',
+    version='1.0',
+    author='Alessio Michelassi',
+    author_email='myemail@example.com',
+    description='A text editor for Python programming',
+    packages=find_packages(),
+    install_requires=[
+        'PySide6',
+        'PyQt6',
+        'pygments'
+    ],
+    entry_points={
+        'console_scripts': [
+            'arguePy = arguePy.__main__:main'
+        ]
+    },
+)
+
+    Aggiungi tutti i file del tuo pacchetto alla cartella. Puoi organizzarli in sottocartelle come desideri.
+    Esegui il comando python setup.py sdist per creare il file sorgente del pacchetto.
+    Esegui il comando twine check dist/* per verificare che il pacchetto sia valido.
+    Esegui il comando twine upload dist/* per caricare il pacchetto su PyPI.
+
+Assicurati di avere setuptools, twine e wheel installati sul tuo sistema per eseguire questi comandi. Puoi installarli tramite pip.

@@ -1,0 +1,37 @@
+ENG:
+    ArguePy is a text editor for Python programming. It is free software, distributed under the GPL license.
+
+    It is available for Windows, Linux and Mac OS X. It was developed by Alessio Michelassi in 2023.
+
+    The name is inspired by a famous scene of the Monty Python "Argument Clinic" written by John Cleese and Graham Chapman where Chapman enters a clinic and says "I want to argue" and Cleese replies "You're in the wrong place, this is the Argument Clinic". In Italian to argue is also synonymous with to fight and so the name was chosen to underline that programming in general is an activity that requires a lot of patience and that often turns into a discussion or a fight with the machine.
+
+ITA:
+    ArguePy è un editor di testo per la programmazione in Python. È un software libero, distribuito sotto licenza GPL.
+
+    È disponibile per Windows, Linux e Mac OS X. È stato sviluppato da Alessio Michelassi nel 2023.
+
+    Il nome è ispirato a una famosa scenetta dei MontyPython "Argument Clinic" dei Monty Python scritto da John Cleese and Graham Chapman dove Chapman entra in una clinica e dice "I want to argue" e Cleese gli risponde "You're in the wrong place, this is the Argument Clinic". In inglese discutere è anche sinonima di litigare e quindi il nome è stato scelto per sottolineare programmare in generale è un'attività che richiede molta pazienza e che spesso si trasforma in una discussione o un litigio con la macchina.
+
+GERM:
+    ArguePy ist ein Texteditor für die Programmierung in Python. Es ist freie Software, die unter der GPL-Lizenz vertrieben wird.
+
+    Es ist für Windows, Linux und Mac OS X verfügbar. Es wurde von Alessio Michelassi im Jahr 2023 entwickelt.
+
+    Der Name ist inspiriert von einer berühmten Szene der Monty Python "Argument Clinic" von John Cleese und Graham Chapman, in der Chapman in eine Klinik geht und sagt "I want to argue" und Cleese antwortet "You're in the wrong place, this is the Argument Clinic". In Englisch zu streiten ist auch gleichbedeutend mit zu kämpfen und so wurde der Name gewählt, um zu betonen, dass Programmieren im Allgemeinen eine Aktivität ist, die viel Geduld erfordert und die oft in eine Diskussion oder einen Kampf mit der Maschine umschlägt.
+
+CHI:
+
+    ArguePy是用于Python编程的文本编辑器。它是一款自由软件，以GPL许可证分发。
+
+    它适用于Windows、Linux和Mac OS X。它由Alessio Michelassi于2023年开发。
+
+    名称灵感来自于Monty Python电影《辩论所》中的一幕，由John Cleese和Graham Chapman编写。Chapman走进一家诊所说“我想辩论”，Cleese回答“你来错地方了，这是辩论所”。在意大利语中，辩论也与打斗等同，因此选择了这个名称来强调编程通常是需要很多耐心的一项活动，经常会变成与机器的争论或斗争。
+
+JAP:
+    ArguePyはPythonプログラミングのためのテキストエディタです。GPLライセンスの下で配布される無料ソフトウェアです。
+
+    Windows、Linux、Mac OS Xに対応しています。2023年にアレッシオ・ミケラッシによって開発されました。
+
+    名前は、ジョン・クリーズとグレアム・チャップマンによって書かれたモンティ・パイソンの有名なシーン、「Argument Clinic」に触発されたもので、チャップマンがクリニックに入って「論争したい」と言うと、クリースが「ここは違う、ここは『論争クリニック』だ」と答えるシーンがあります。イタリア語では、議論することは戦うことでもあるため、プログラミングは非常に忍耐力を必要とする活動であり、しばしばマシンとの議論や戦いになることを強調するためにこの名前が選ばれました。
+
+let's argue!

@@ -1,13 +1,13 @@
 import os
 import sys
 import time
+import cProfile
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtWidgets import *
 
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-
-from ArguePy_CodeEditor.ArguePyMainWin import ArguePy
-from ArguePy_CodeEditor.editorWidgetTool.commonMenu.splashScreen import SplashScreen
+from ArguePyMainWindows.arguePyMainWindows import ArguePy
+from ArguePyMainWindows.commonMenu.splashScreen import SplashScreen
 
 
 def setPalette(app):
@@ -42,7 +42,7 @@ def main():
     splash.show()
     setPalette(app)
     window = ArguePy()
-    #splash.finish(window)
+    splash.finish(window)
     window.setGeometry(500, 500, 1200, 1200)
     splash.close()
     window.show()
@@ -50,4 +50,5 @@ def main():
 
 
 if __name__ == '__main__':
+    # cProfile.run('main()', sort='tottime')
     main()
