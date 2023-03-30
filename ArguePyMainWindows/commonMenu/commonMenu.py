@@ -5,6 +5,7 @@ from os.path import exists
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
+from ArguePyMainWindows.settingsIni.settings import Settings
 
 
 class CommonMenu(QMenuBar):
@@ -20,6 +21,7 @@ class CommonMenu(QMenuBar):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.mainWindows = self.parent()
+        self.settings = Settings("settings.ini")
         self.recentFiles = []
         self.createMenu()
         self.createFileMenu()
@@ -56,9 +58,9 @@ class CommonMenu(QMenuBar):
         _open.triggered.connect(self.openFile)
 
         # recent files
-        self.recentFilesMenu = QMenu('Recent Files', self)
+        self.recentFilesMenu = QMenu(self)
+        self.recentFilesMenu.setTitle("Open Recent")
         self.openSettingsFile()
-        self.recentFilesMenu.triggered.connect(self.openRecentFiles)
 
         _save = QAction("Save", self)
         _save.setShortcut("Ctrl+S")
@@ -68,6 +70,10 @@ class CommonMenu(QMenuBar):
         _saveAs.setShortcut("Ctrl+Shift+S")
         _saveAs.setStatusTip("Save the file as")
         _saveAs.triggered.connect(self.saveFileAs)
+        _closeProject = QAction("Close Project", self)
+        _closeProject.setShortcut("Ctrl+Shift+W")
+        _closeProject.setStatusTip("Close current project")
+        _closeProject.triggered.connect(self.closeProject)
         _exit = QAction("Exit", self)
         _exit.setShortcut("Ctrl+Q")
         _exit.setStatusTip("Exit the application")
@@ -83,6 +89,9 @@ class CommonMenu(QMenuBar):
         self.fileMenu.addAction(_save)
         self.fileMenu.addAction(_saveAs)
         self.fileMenu.addSeparator()
+        self.fileMenu.addAction(_closeProject)
+        self.fileMenu.addSeparator()
+
         self.fileMenu.addAction(_exit)
 
     def createEditMenu(self):
@@ -147,11 +156,7 @@ class CommonMenu(QMenuBar):
         self.helpMenu.addAction(_about)
         self.helpMenu.addAction(_aboutQt)
 
-    # ################################################
-    #
     #       file commonMenu
-    #
-    #
 
     def newFile(self):
         self.mainWindows.onNewProject()
@@ -170,13 +175,15 @@ class CommonMenu(QMenuBar):
 
     def updateRecentFileMenu(self):
         if self.recentFiles:
-            if len(self.recentFiles) == 0:
-                self.recentFilesMenu.addAction("No recent files")
-            else:
-                for file in self.recentFiles:
-                    self.recentFilesMenu.addAction(file)
-            self.recentFilesMenu.addSeparator()
-            self.recentFilesMenu.addAction("Clear recent files").triggered.connect(self.clearRecentFiles)
+            self.recentFilesMenu.clear()
+            for file in self.recentFiles.split(","):
+                self.recentFilesMenu.addAction(file)
+        else:
+            self.recentFilesMenu.clear()
+            self.recentFilesMenu.addAction("No recent files")
+
+        self.recentFilesMenu.addSeparator()
+        self.recentFilesMenu.addAction("Clear recent files").triggered.connect(self.clearRecentFiles)
 
     def clearRecentFiles(self):
         self.recentFiles = []
@@ -189,26 +196,29 @@ class CommonMenu(QMenuBar):
             ENG: Open the recent files list
         :return:
         """
-        if exists("recentFiles.ini"):
-            self.recentFiles.clear()
-            with open("recentFiles.ini", "r") as file:
-                self.recentFiles = file.readlines()
-            if self.recentFiles:
-                self.updateRecentFileMenu()
+        self.settings.load()
+        self.recentFiles = self.settings.get("recentFiles")
+        if self.recentFiles:
+            self.updateRecentFileMenu()
         else:
             self.recentFilesMenu.addAction("No recent files")
             self.saveSettingsFiles()
 
     def saveSettingsFiles(self):
-        with open("recentFiles.ini", "w") as file:
-            for _fileName in self.recentFiles:
-                file.write(_fileName)
+        if self.recentFiles:
+            if len(self.recentFiles) > 10:
+                self.recentFiles.pop(0)
+            self.settings.set("recentFiles", self.recentFiles)
+            self.settings.save()
 
     def saveFile(self):
         self.mainWindows.onSaveProject()
 
     def saveFileAs(self):
         self.mainWindows.onSaveProjectAs()
+
+    def closeProject(self):
+        self.mainWindows.onCloseProject()
 
     def exitApplication(self):
         self.saveSettings()

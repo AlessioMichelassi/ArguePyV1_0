@@ -29,6 +29,10 @@ class CustomTabWidget(QTabWidget):
             currentTab.saveFile()
         self.removeTab(index)
 
+    def closeAllTab(self):
+        for i in range(self.count()):
+            self.closeTab(i)
+
     def setName(self, name):
         self.tabLabel.setText(name)
 
@@ -76,6 +80,18 @@ class CustomTabWidget(QTabWidget):
             codeEditor = self.currentWidget().findChild(ArguePyWidget)
             codeEditor.saveFile()
             return True
+
+    def saveAllFile(self):
+        """
+        ITA:
+            Questo metodo salva tutti i file aperti.
+        ENG:
+            This method saves all open files.
+        :return:
+        """
+        for i in range(self.count()):
+            self.setCurrentIndex(i)
+            self.saveFile()
 
     def onRun(self):
         """

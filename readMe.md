@@ -4,7 +4,7 @@ ArguePy
 
 Introduction
 
-ArguePy in code editor with Python syntax highlighting for writing programs in Python. It is written in Python and uses the pyQt5 library for the GUI. It is a simple and easy to use code editor. It is a free and open source software.
+ArguePy in code editor with Python syntax highlighting for writing programs in Python. It is written in Python and uses the PySide6 library for the GUI. It is a simple and easy to use code editor. It is a free and open source software.
 
 Features
 

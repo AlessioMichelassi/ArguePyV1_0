@@ -251,6 +251,31 @@ class FileExplorer(QWidget):
         else:
             self.mainWindows.close()
 
+    def saveAsProject(self):
+        """
+        ITA:
+            Questo metodo apre un file dialog per salvare un progetto
+        ENG:
+            This method opens a file dialog to save a project
+        :return:
+        """
+        listOfAllFiles = []
+        for (dirpath, dirnames, filenames) in os.walk(self.projectPath):
+            listOfAllFiles += [os.path.join(dirpath, file) for file in filenames]
+
+        dirProject = QFileDialog.getExistingDirectory(self, "Select Directory")
+        if dirProject:
+            projectName, ok = QInputDialog.getText(self, "Choose a ProjectName", "name:", text="untitled",
+                                                   flags=Qt.WindowTitleHint)
+            if ok and projectName != "":
+                # crea una directory con il nome del progetto
+                os.mkdir(os.path.join(dirProject, projectName))
+                # copia tutti i file del progetto nella nuova directory
+                for file in listOfAllFiles:
+                    shutil.copy(file, os.path.join(dirProject, projectName))
+                # imposta il nuovo progetto
+                self.setProject(os.path.join(dirProject, projectName))
+
     def mouseDoubleClickEvent(self, event):
         event.ignore()
         self.mainWindows.tabWidget.addTabCode(self.getSelectedFilePath())

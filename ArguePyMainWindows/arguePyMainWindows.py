@@ -181,4 +181,21 @@ class ArguePy(QMainWindow):
         except subprocess.TimeoutExpired:
             self.console.append(f"subprocess.TimeoutExpired: {subprocess.TimeoutExpired}")
 
+    # ------------------ PROJECT  MANAGMENT ------------------
 
+    def onNewProject(self):
+        self.tabWidget.closeAllTab()
+        self.fileExplorer.openProject()
+
+    def onOpenProject(self):
+        self.tabWidget.closeAllTab()
+        self.fileExplorer.openProject()
+
+    def onSavedProject(self):
+        self.tabWidget.saveAllFile()
+
+    def onSavedAsProject(self):
+        self.fileExplorer.saveAsProject()
+
+    def onCloseProject(self):
+        self.tabWidget.closeAllTab()
