@@ -1,5 +1,6 @@
 import configparser
 
+import contextlib
 default_settings = {
     "username": "",
     "language": "en",
@@ -25,13 +26,11 @@ class Settings:
 
     def load(self):
         # Carica le impostazioni dal file di configurazione, se esiste
-        try:
+        with contextlib.suppress(FileNotFoundError):
             with open(self.filename, "r") as f:
                 self.config.read_file(f)
             print("Settings loaded from", self.filename)
             print("Settings:", self.config)
-        except FileNotFoundError:
-            pass
 
     def save(self):
         # Salva le impostazioni nel file di configurazione

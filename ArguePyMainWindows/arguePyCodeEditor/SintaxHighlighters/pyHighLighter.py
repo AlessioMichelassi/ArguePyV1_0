@@ -41,7 +41,7 @@ mathFunction = ['acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'cei
                 'tanh', 'tau', 'trunc']
 
 operators = [
-    '=',
+    '=','==', '!=', '<', '<=', '>', '>=',
     # Comparison
     '==', '!=', '<', '<=', '>', '>=',
     # Arithmetic

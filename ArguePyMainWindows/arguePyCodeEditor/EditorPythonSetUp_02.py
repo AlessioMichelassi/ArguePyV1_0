@@ -5,6 +5,7 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
 from ArguePyMainWindows.arguePyCodeEditor.EditorColorSetUp_01 import EditorColorSetUp
+
 from ArguePyMainWindows.arguePyCodeEditor.SintaxHighlighters.pyHighLighter import pythonHighLighter
 
 """
